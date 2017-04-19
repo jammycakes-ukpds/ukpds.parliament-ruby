@@ -48,8 +48,7 @@ module Parliament
       #
       # @return [Array, Array] the members of the Grom::Node or an empty array.
       def members
-        return @members unless @members .nil?
-
+        return @members unless @members.nil?
         members = []
         seat_incumbencies.each do |seat_incumbency|
           members << seat_incumbency.member
@@ -86,6 +85,24 @@ module Parliament
         has_end_date = respond_to?(:constituencyGroupEndDate)
 
         !has_end_date
+      end
+
+      # Alias incumbencyHasMember with fallback.
+      #
+      # @return [Array, Array] the members of the Grom::Node is equivalent to one or an empty array.
+
+      def member
+        return @member unless @member.nil?
+        member = []
+        seat_incumbencies.each do |seat_incumbency|
+          member << seat_incumbency.member
+        end
+        @member = member.flatten.uniq
+      end
+
+      def party_name
+        return @constituency_node = @constituency_node.member.first.parties.first unless @constituency_node.nil?
+        @constituency_node.respond_to?(:partyName) ? constituency_node.partyName : ''
       end
     end
   end
