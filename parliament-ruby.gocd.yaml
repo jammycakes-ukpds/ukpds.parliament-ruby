@@ -24,7 +24,28 @@ pipelines:
                     arguments:
                       - build
 
+  parliament-ruby-PR:
+    group: parliament-ruby
+    label_template: "${COUNT}"
+
+    materials:
+      parliament-ruby-git:
+        git: https://github.com/ukparliament/parliament-ruby
+        branch: master
+        auto_update: true
+    stages:
+      - test:
+          jobs:
+            test:
+              tasks:
+                - exec:
+                    run_if: passed
+                    command: make
+                    arguments:
+                      - test
+
 environments:
   Web.Linux:
     pipelines:
       - parliament-ruby
+      - parliament-ruby-PR
