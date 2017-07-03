@@ -25,6 +25,6 @@ pipelines:
                       - build
 
 environments:
-  Web.DEVCI:
+  Web.Linux:
     pipelines:
       - parliament-ruby
