@@ -23,3 +23,8 @@ pipelines:
                     command: make
                     arguments:
                       - build
+
+environments:
+  Web.DEVCI:
+    pipelines:
+      - parliament-ruby
