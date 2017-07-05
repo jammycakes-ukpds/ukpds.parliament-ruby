@@ -137,7 +137,7 @@ response.each do |node|
   #
   # You would be able to access the `name` attribute like so:
   puts node.name #=> 'Matthew Rayner'
-  
+
   # If your n-triple file contains a triple who's object is a URI, and that URI is defined within your file, a link will
   # be created, allowing you to 'connect' the two objects. For example, with the following triples:
   # <http://id.ukpds.org/1234> <http://id.ukpds.org/schema/name> 'Matthew Rayner' .
@@ -148,7 +148,7 @@ response.each do |node|
   puts node.graph_id        #=> '12345'
   puts node.name            #=> 'Matthew Rayner'
   puts node.partyMembership #=> [#<Grom::Node @startDate=...>]
-  
+
   puts node.partyMembership.first.startDate #=> "1992-04-09"
 end
 ```
@@ -325,3 +325,4 @@ If you wish to submit a bug fix or feature, you can create a pull request and it
 
 [info-license]:   http://www.parliament.uk/site-information/copyright/open-parliament-licence/
 [shield-license]: https://img.shields.io/badge/license-Open%20Parliament%20Licence-blue.svg
+
